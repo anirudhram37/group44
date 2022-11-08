@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="window1" minHeight="300.0" minWidth="450.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="group44.pizza.NewOrderController">
+   <children>
+      <ImageView fitHeight="300.0" fitWidth="450.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@pizza3.jpg" />
+         </image>
+      </ImageView>
+      <Pane layoutX="66.0" layoutY="27.0" prefHeight="235.0" prefWidth="318.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="300.0" layoutY="-27.0" opacity="0.86" stroke="BLACK" strokeType="INSIDE" width="318.0" />
+            <Label layoutX="99.0" layoutY="-21.0" text="Select Your Pizza:">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="88.0" layoutY="65.0" text="Additional Toppings:">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></Label>
+            <Button layoutX="122.0" layoutY="235.0" mnemonicParsing="false" onAction="#promptClick" text="Submit" />
+            <RadioButton layoutX="48.0" layoutY="8.0" mnemonicParsing="false" text="Pepperoni">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </RadioButton>
+            <RadioButton layoutX="48.0" layoutY="36.0" mnemonicParsing="false" text="Cheese">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </RadioButton>
+            <RadioButton layoutX="171.0" layoutY="8.0" mnemonicParsing="false" text="Vegetable">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </RadioButton>
+            <CheckBox layoutX="46.0" layoutY="92.0" mnemonicParsing="false" text="Mushroom">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </CheckBox>
+            <CheckBox layoutX="168.0" layoutY="92.0" mnemonicParsing="false" text="Onion">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </CheckBox>
+            <CheckBox layoutX="46.0" layoutY="123.0" mnemonicParsing="false" text="Olives">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </CheckBox>
+            <CheckBox layoutX="168.0" layoutY="123.0" mnemonicParsing="false" text="Extra Cheese">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </CheckBox>
+            <Label layoutX="103.0" layoutY="150.0" text="Pickup Time:">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <MenuButton layoutX="120.0" layoutY="184.0" mnemonicParsing="false" text="Time">
+              <items>
+                <MenuItem mnemonicParsing="false" text="12:00 pm" />
+                <MenuItem mnemonicParsing="false" text="1:00 pm" />
+                  <MenuItem mnemonicParsing="false" text="2:00 pm" />
+                  <MenuItem mnemonicParsing="false" text="3:00 pm" />
+                  <MenuItem mnemonicParsing="false" text="4:00 pm" />
+                  <MenuItem mnemonicParsing="false" text="5:00 pm" />
+              </items>
+            </MenuButton>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
