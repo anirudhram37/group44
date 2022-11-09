@@ -26,6 +26,10 @@ public class Order {
         return this.asuID;
     }
 
+    public void setAsuID(String asuID) {
+        this.asuID = asuID;
+    }
+
     public String getPizzaType() {
         return this.pizzaType;
     }
@@ -37,4 +41,6 @@ public class Order {
     public String getPickupTime() {
         return this.pickupTime;
     }
+
+    public String to
 }

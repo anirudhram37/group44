@@ -34,23 +34,31 @@ public class NewOrderController {
 
     @FXML
     public void onSubmit(ActionEvent event) throws Exception {
-        submitOrder();
         try {
+            // CHECK FOR INVALID SUBMISSIONS
+            if (this.pizzaType == "") return;
+            if (this.pickupTime == "") return;
+
+            // Create a new order object
+            Order newOrder = generateOrder();
+
+            // Create prompt screen
             PromptController prompt = new PromptController();
+
+            // Set order in prompt screen
+            prompt.setOrder(newOrder);
+
             prompt.promptStart(new Stage());
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void submitOrder() {
-        // CHECK FOR INVALID SUBMISSIONS
-        if (this.pizzaType == "") return;
-        if (this.pickupTime == "") return;
-
+    private Order generateOrder() {
         // ADD ORDER TO DATABASE?
         Order newOrder = new Order("", this.pizzaType,this.toppings,this.pickupTime);
-        Database.addOrder(newOrder);
+        return newOrder;
     }
 
     // HI! Noel here, the classes below are to set the pizza types.
