@@ -26,7 +26,7 @@
                <font>
                   <Font name="System Bold" size="15.0" />
                </font></Label>
-            <Button layoutX="122.0" layoutY="235.0" mnemonicParsing="false" onAction="#promptClick" text="Submit" />
+            <Button layoutX="122.0" layoutY="235.0" mnemonicParsing="false" onAction="#onSubmit" text="Submit" />
             <RadioButton layoutX="48.0" layoutY="8.0" mnemonicParsing="false" text="Pepperoni" onAction="#setPepperoni">
                <font>
                   <Font name="System Bold" size="12.0" />

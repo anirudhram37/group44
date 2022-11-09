@@ -1,5 +1,6 @@
 package group44.pizza;
 
+import group44.pizza.storage.Order;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,13 +32,23 @@ public class NewOrderController {
     }
 
     @FXML
-    public void promptClick(ActionEvent event) throws Exception {
+    public void onSubmit(ActionEvent event) throws Exception {
+        submitOrder();
         try {
             PromptController prompt = new PromptController();
             prompt.promptStart(new Stage());
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void submitOrder() {
+        // CHECK FOR INVALID SUBMISSIONS
+        if (this.pizzaType == "") return;
+        if (this.pickupTime == "") return;
+
+        // ADD ORDER TO DATABASE?
+        Order newOrder = new Order("", this.pizzaType,this.toppings,this.pickupTime);
     }
 
     // HI! Noel here, the classes below are to set the pizza types.
