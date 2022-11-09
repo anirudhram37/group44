@@ -83,6 +83,7 @@ public class NewOrderController {
         this.displayCurrentState();
     }
 
+    // Displays the current state of the class
     private void displayCurrentState() {
         System.out.printf("\nCURRENT STATE\n");
         System.out.printf("Pizza type:  %s\n", this.pizzaType);
