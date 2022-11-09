@@ -78,12 +78,12 @@
             </Label>
             <MenuButton layoutX="120.0" layoutY="184.0" mnemonicParsing="false" text="Time">
               <items>
-                <MenuItem mnemonicParsing="false" text="12:00 pm" />
-                <MenuItem mnemonicParsing="false" text="1:00 pm" />
-                  <MenuItem mnemonicParsing="false" text="2:00 pm" />
-                  <MenuItem mnemonicParsing="false" text="3:00 pm" />
-                  <MenuItem mnemonicParsing="false" text="4:00 pm" />
-                  <MenuItem mnemonicParsing="false" text="5:00 pm" />
+                <MenuItem mnemonicParsing="false" text="12:00 pm" onAction="#set1200"/>
+                <MenuItem mnemonicParsing="false" text="1:00 pm" onAction="#set100"/>
+                  <MenuItem mnemonicParsing="false" text="2:00 pm" onAction="#set200"/>
+                  <MenuItem mnemonicParsing="false" text="3:00 pm" onAction="#set300"/>
+                  <MenuItem mnemonicParsing="false" text="4:00 pm" onAction="#set400"/>
+                  <MenuItem mnemonicParsing="false" text="5:00 pm" onAction="#set500"/>
               </items>
             </MenuButton>
          </children>

@@ -1,8 +1,5 @@
 package group44.pizza;
 
-import group44.pizza.storage.PizzaType;
-import group44.pizza.storage.Topping;
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,8 +12,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class NewOrderController {
-    ArrayList<Topping> toppings = new ArrayList<Topping>();
-    PizzaType pizzaType = PizzaType.EMPTY;
+    ArrayList<String> toppings = new ArrayList<String>();
+    String pizzaType = "";
+    String time = "";
 
     @FXML
     public void newOrderStart(Stage stage) throws IOException {
@@ -47,28 +45,41 @@ public class NewOrderController {
     // I'm personally not too sure how to pass parameters and stuff into onAction functions but
     // this solutions isn't too shabby imo
 
-    public void setPepperoni() {setPizzaType(PizzaType.PEPPERONI);}
-    public void setVegetable() {setPizzaType(PizzaType.VEGETABLE);}
-    public void setCheese() {setPizzaType(PizzaType.CHEESE);}
+    public void setPepperoni() {setPizzaType("Pepperoni");}
+    public void setVegetable() {setPizzaType("Vegetable");}
+    public void setCheese() {setPizzaType("Cheese");}
 
-    private void setPizzaType(PizzaType pizzaType)
+    private void setPizzaType(String pizzaType)
     {
         this.pizzaType = pizzaType;
-        System.out.println(pizzaType);
+        System.out.println(this.pizzaType);
     }
-    
-    public void addMushroom() {addTopping(Topping.MUSHROOM);}
-    public void addOnion() {addTopping(Topping.ONION);}
-    public void addOlives() {addTopping(Topping.OLIVES);}
-    public void addExtraCheese() {addTopping(Topping.EXTRA_CHEESE);}
+
+    public void addMushroom() {addTopping("Mushroom");}
+    public void addOnion() {addTopping("Onion");}
+    public void addOlives() {addTopping("Olivrs");}
+    public void addExtraCheese() {addTopping("Extra Cheese");}
 
     // The functions below
-    private void addTopping(Topping topping)
+    private void addTopping(String topping)
     {
-        if (this.toppings.contains(topping)) toppings.remove(topping);
-        else toppings.add(topping);
+        if (this.toppings.contains(topping)) this.toppings.remove(topping);
+        else this.toppings.add(topping);
 
         // FOR DEBUGGING
-        System.out.println(toppings);
+        System.out.println(this.toppings);
+    }
+
+    // I MADE ONE FOR EACH TIME SMH
+    public void set1200() {setTime("12:00pm");}
+    public void set100() {setTime("1:00pm");}
+    public void set200() {setTime("2:00pm");}
+    public void set300() {setTime("3:00pm");}
+    public void set400() {setTime("4:00pm");}
+    public void set500() {setTime("5:00pm");}
+
+    private void setTime(String time) {
+        this.time = time;
+        System.out.println(this.time);
     }
 }
