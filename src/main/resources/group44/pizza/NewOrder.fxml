@@ -31,7 +31,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </RadioButton>
-            <RadioButton layoutX="48.0" layoutY="36.0" mnemonicParsing="false" text="Cheese"onAction="#setCheese">
+            <RadioButton layoutX="48.0" layoutY="36.0" mnemonicParsing="false" text="Cheese" onAction="#setCheese">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
