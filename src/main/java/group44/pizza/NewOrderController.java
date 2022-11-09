@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class NewOrderController {
     ArrayList<String> toppings = new ArrayList<String>();
     String pizzaType = "";
-    String time = "";
+    String pickupTime = "";
 
     @FXML
     public void newOrderStart(Stage stage) throws IOException {
@@ -52,12 +52,12 @@ public class NewOrderController {
     private void setPizzaType(String pizzaType)
     {
         this.pizzaType = pizzaType;
-        System.out.println(this.pizzaType);
+        this.displayCurrentState();
     }
 
     public void addMushroom() {addTopping("Mushroom");}
     public void addOnion() {addTopping("Onion");}
-    public void addOlives() {addTopping("Olivrs");}
+    public void addOlives() {addTopping("Olives");}
     public void addExtraCheese() {addTopping("Extra Cheese");}
 
     // The functions below
@@ -67,7 +67,7 @@ public class NewOrderController {
         else this.toppings.add(topping);
 
         // FOR DEBUGGING
-        System.out.println(this.toppings);
+        this.displayCurrentState();
     }
 
     // I MADE ONE FOR EACH TIME SMH
@@ -78,8 +78,15 @@ public class NewOrderController {
     public void set400() {setTime("4:00pm");}
     public void set500() {setTime("5:00pm");}
 
-    private void setTime(String time) {
-        this.time = time;
-        System.out.println(this.time);
+    private void setTime(String pickupTime) {
+        this.pickupTime = pickupTime;
+        this.displayCurrentState();
+    }
+
+    private void displayCurrentState() {
+        System.out.printf("\nCURRENT STATE\n");
+        System.out.printf("Pizza type: \t %s\n", this.pizzaType);
+        System.out.printf("Toppings: \t %s\n", this.toppings.toString());
+        System.out.printf("Pickup time: \t %s\n", this.pickupTime);
     }
 }
