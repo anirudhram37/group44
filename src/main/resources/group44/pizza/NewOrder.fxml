@@ -31,12 +31,12 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </RadioButton>
-            <RadioButton layoutX="48.0" layoutY="36.0" mnemonicParsing="false" text="Cheese">
+            <RadioButton layoutX="48.0" layoutY="36.0" mnemonicParsing="false" text="Cheese"onAction="#setCheese">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </RadioButton>
-            <RadioButton layoutX="171.0" layoutY="8.0" mnemonicParsing="false" text="Vegetable">
+            <RadioButton layoutX="171.0" layoutY="8.0" mnemonicParsing="false" text="Vegetable" onAction="#setVegetable">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
