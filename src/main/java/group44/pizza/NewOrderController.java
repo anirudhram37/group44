@@ -46,33 +46,29 @@ public class NewOrderController {
     // I made a class for each button because...because
     // I'm personally not too sure how to pass parameters and stuff into onAction functions but
     // this solutions isn't too shabby imo
-    public void setPepperoni(ActionEvent event) throws Exception {
-        System.out.println("SET PEPPERONI");
-        pizzaType = PizzaType.PEPPERONI;
-    }
 
-    public void setVegetable(ActionEvent event) throws Exception {
-        System.out.println("SET VEGETABLE");
-        pizzaType = PizzaType.VEGETABLE;
-    }
+    public void setPepperoni() {setPizzaType(PizzaType.PEPPERONI);}
+    public void setVegetable() {setPizzaType(PizzaType.VEGETABLE);}
+    public void setCheese() {setPizzaType(PizzaType.CHEESE);}
 
-    public void setCheese(ActionEvent event) throws Exception {
-        System.out.println("SET VEGETABLE");
-        pizzaType = PizzaType.CHEESE;
+    private void setPizzaType(PizzaType pizzaType)
+    {
+        this.pizzaType = pizzaType;
+        System.out.println(pizzaType);
     }
+    
+    public void addMushroom() {addTopping(Topping.MUSHROOM);}
+    public void addOnion() {addTopping(Topping.ONION);}
+    public void addOlives() {addTopping(Topping.OLIVES);}
+    public void addExtraCheese() {addTopping(Topping.EXTRA_CHEESE);}
 
     // The functions below
     private void addTopping(Topping topping)
     {
         if (this.toppings.contains(topping)) toppings.remove(topping);
-        toppings.add(topping);
+        else toppings.add(topping);
 
         // FOR DEBUGGING
         System.out.println(toppings);
     }
-
-    public void addMushroom() {addTopping(Topping.MUSHROOM);}
-    public void addOnion() {addTopping(Topping.ONION);}
-    public void addOlives() {addTopping(Topping.OLIVES);}
-    public void addExtraCheese() {addTopping(Topping.EXTRA_CHEESE);}
 }
