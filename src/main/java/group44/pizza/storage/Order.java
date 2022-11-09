@@ -42,5 +42,11 @@ public class Order {
         return this.pickupTime;
     }
 
-    public String to
+    public String toString() {
+        String line1 = "Pizza type  :" + this.pizzaType + "\n";
+        String line2 = "Toppings    :" + this.toppings.toString() + "\n";
+        String line3 = "Pickup time :" + this.pickupTime + "\n";
+
+        return line1 + line2 + line3;
+    }
 }

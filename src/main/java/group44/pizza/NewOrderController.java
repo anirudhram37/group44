@@ -45,10 +45,10 @@ public class NewOrderController {
             // Create prompt screen
             PromptController prompt = new PromptController();
 
+            prompt.promptStart(new Stage());
+
             // Set order in prompt screen
             prompt.setOrder(newOrder);
-
-            prompt.promptStart(new Stage());
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -57,8 +57,7 @@ public class NewOrderController {
 
     private Order generateOrder() {
         // ADD ORDER TO DATABASE?
-        Order newOrder = new Order("", this.pizzaType,this.toppings,this.pickupTime);
-        return newOrder;
+        return new Order("", this.pizzaType,this.toppings,this.pickupTime);
     }
 
     // HI! Noel here, the classes below are to set the pizza types.

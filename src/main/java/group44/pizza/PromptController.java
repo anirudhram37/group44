@@ -16,8 +16,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class PromptController {
-    String asuId = "";
-    Order currentOrder = new Order("", "", new ArrayList<String>(), "");
+    private String asuId = "";
+    private Order currentOrder;
 
     @FXML
     public void promptStart(Stage stage) throws IOException {
@@ -36,18 +36,21 @@ public class PromptController {
     private void displayCurrentState() {
         System.out.printf("\nPROMPT STATUS\n");
         System.out.printf("ASU ID: %s", this.asuId);
+        System.out.printf("ORDER:\n %s", this.currentOrder);
     }
 
-    public void setAsuIdText(KeyEvent event) throws Exception {
-        asuId =  ((TextField)event.getSource()).getText();
-        this.currentOrder.setAsuID(asuId);
+    public void setAsuIdText(KeyEvent event) {
         displayCurrentState();
+        return;
+//        asuId =  ((TextField)event.getSource()).getText();
+//        currentOrder.setAsuID(asuId);
     }
 
     public void setOrder(Order order) {
-        System.out.println("SET ORDER");
+        System.out.println("\nSET ORDER\n");
         System.out.println(order);
-        this.currentOrder = order;
+        currentOrder = order;
+        displayCurrentState();
     }
 
     public void submitOrder() {
