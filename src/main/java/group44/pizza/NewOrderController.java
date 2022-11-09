@@ -42,6 +42,10 @@ public class NewOrderController {
         }
     }
 
+    // HI! Noel here, the classes below are to set the pizza types.
+    // I made a class for each button because...because
+    // I'm personally not too sure how to pass parameters and stuff into onAction functions but
+    // this solutions isn't too shabby imo
     public void setPepperoni(ActionEvent event) throws Exception {
         System.out.println("SET PEPPERONI");
         pizzaType = PizzaType.PEPPERONI;
