@@ -60,4 +60,19 @@ public class NewOrderController {
         System.out.println("SET VEGETABLE");
         pizzaType = PizzaType.CHEESE;
     }
+
+    // The functions below
+    private void addTopping(Topping topping)
+    {
+        if (this.toppings.contains(topping)) toppings.remove(topping);
+        toppings.add(topping);
+
+        // FOR DEBUGGING
+        System.out.println(toppings);
+    }
+
+    public void addMushroom() {addTopping(Topping.MUSHROOM);}
+    public void addOnion() {addTopping(Topping.ONION);}
+    public void addOlives() {addTopping(Topping.OLIVES);}
+    public void addExtraCheese() {addTopping(Topping.EXTRA_CHEESE);}
 }
