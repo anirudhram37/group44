@@ -85,8 +85,8 @@ public class NewOrderController {
 
     private void displayCurrentState() {
         System.out.printf("\nCURRENT STATE\n");
-        System.out.printf("Pizza type: \t %s\n", this.pizzaType);
-        System.out.printf("Toppings: \t %s\n", this.toppings.toString());
-        System.out.printf("Pickup time: \t %s\n", this.pickupTime);
+        System.out.printf("Pizza type:  %s\n", this.pizzaType);
+        System.out.printf("Toppings:    %s\n", this.toppings.toString());
+        System.out.printf("Pickup time: %s\n", this.pickupTime);
     }
 }
