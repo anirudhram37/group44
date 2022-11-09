@@ -15,8 +15,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class NewOrderController {
-    ArrayList<Topping> toppings;
-    PizzaType pizzaType;
+    ArrayList<Topping> toppings = new ArrayList<Topping>();
+    PizzaType pizzaType = PizzaType.EMPTY;
 
     @FXML
     public void newOrderStart(Stage stage) throws IOException {
