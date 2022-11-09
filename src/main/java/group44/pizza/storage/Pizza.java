@@ -6,10 +6,10 @@ public class Pizza {
     private PizzaType pizzaType;
     private ArrayList<Topping> toppings;
 
-    public Pizza(PizzaType pizzaType, ArrayList<Topping> topping)
+    public Pizza(PizzaType pizzaType, ArrayList<Topping> toppings)
     {
         this.pizzaType = pizzaType;
-        this.topping = topping;
+        this.toppings = toppings;
     }
 
     public PizzaType getPizzaType()
