@@ -1,5 +1,6 @@
 package group44.pizza;
 
+import group44.pizza.storage.Database;
 import group44.pizza.storage.Order;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -49,6 +50,7 @@ public class NewOrderController {
 
         // ADD ORDER TO DATABASE?
         Order newOrder = new Order("", this.pizzaType,this.toppings,this.pickupTime);
+        Database.addOrder(newOrder);
     }
 
     // HI! Noel here, the classes below are to set the pizza types.
@@ -96,7 +98,7 @@ public class NewOrderController {
 
     // Displays the current state of the class
     private void displayCurrentState() {
-        System.out.printf("\nCURRENT STATE\n");
+        System.out.printf("\nNEW ORDER STATE\n");
         System.out.printf("Pizza type:  %s\n", this.pizzaType);
         System.out.printf("Toppings:    %s\n", this.toppings.toString());
         System.out.printf("Pickup time: %s\n", this.pickupTime);

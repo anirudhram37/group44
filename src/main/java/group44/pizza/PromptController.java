@@ -23,4 +23,8 @@ public class PromptController {
         stage.setY(y);
         stage.show();
     }
+
+    private void displayCurrentState() {
+        System.out.printf("\nPROMPT STATUS\n");
+    }
 }
