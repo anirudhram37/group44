@@ -1,5 +1,7 @@
 package group44.pizza;
 
+import group44.pizza.storage.PizzaType;
+import group44.pizza.storage.Topping;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +14,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class NewOrderController {
+    ArrayList<Topping> toppings;
+    PizzaType pizzaType;
 
     @FXML
     public void newOrderStart(Stage stage) throws IOException {
@@ -35,5 +39,20 @@ public class NewOrderController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void setPepperoni(ActionEvent event) throws Exception {
+        System.out.println("SET PEPPERONI");
+        pizzaType = PizzaType.PEPPERONI;
+    }
+
+    public void setVegetable(ActionEvent event) throws Exception {
+        System.out.println("SET VEGETABLE");
+        pizzaType = PizzaType.VEGETABLE;
+    }
+
+    public void setCheese(ActionEvent event) throws Exception {
+        System.out.println("SET VEGETABLE");
+        pizzaType = PizzaType.CHEESE;
     }
 }

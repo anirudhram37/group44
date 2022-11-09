@@ -2,19 +2,6 @@ package group44.pizza.storage;
 
 import java.util.ArrayList;
 
-enum PizzaType {
-    PEPPERONI,
-    VEGETABLE,
-    CHEESE
-}
-
-enum Topping {
-    MUSHROOM,
-    ONION,
-    OLIVES,
-    EXTRA_CHEESE
-}
-
 public class Pizza {
     private PizzaType pizzaType;
     private ArrayList<Topping> toppings;
