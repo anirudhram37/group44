@@ -1,9 +1,12 @@
 package group44.pizza.storage;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Order {
-    private static long nextId;
+public class Order implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    private static long nextId = 0;
     private long id;
     private String asuID;
     private String pizzaType;
@@ -43,10 +46,11 @@ public class Order {
     }
 
     public String toString() {
+        String line0 = "ASU ID      :" + this.asuID + "\n";
         String line1 = "Pizza type  :" + this.pizzaType + "\n";
         String line2 = "Toppings    :" + this.toppings.toString() + "\n";
         String line3 = "Pickup time :" + this.pickupTime + "\n";
 
-        return line1 + line2 + line3;
+        return line0 + line1 + line2 + line3;
     }
 }

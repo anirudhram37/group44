@@ -2,6 +2,7 @@ package group44.pizza;
 
 import group44.pizza.storage.Database;
 import group44.pizza.storage.Order;
+import group44.pizza.storage.Persist;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -48,7 +49,7 @@ public class NewOrderController {
             prompt.promptStart(new Stage());
 
             // Set order in prompt screen
-            prompt.setOrder(newOrder);
+            Persist.customerViewOrder = newOrder;
 
         } catch (Exception e) {
             e.printStackTrace();

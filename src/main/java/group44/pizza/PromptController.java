@@ -2,6 +2,7 @@ package group44.pizza;
 
 import group44.pizza.storage.Database;
 import group44.pizza.storage.Order;
+import group44.pizza.storage.Persist;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +18,6 @@ import java.util.ArrayList;
 
 public class PromptController {
     private String asuId = "";
-    private Order currentOrder;
 
     @FXML
     public void promptStart(Stage stage) throws IOException {
@@ -35,26 +35,18 @@ public class PromptController {
 
     private void displayCurrentState() {
         System.out.printf("\nPROMPT STATUS\n");
-        System.out.printf("ASU ID: %s", this.asuId);
-        System.out.printf("ORDER:\n %s", this.currentOrder);
+        System.out.printf("ORDER:\n%s", Persist.customerViewOrder);
     }
 
     public void setAsuIdText(KeyEvent event) {
+        asuId =  ((TextField)event.getSource()).getText();
+        Persist.customerViewOrder.setAsuID(asuId);
         displayCurrentState();
         return;
-//        asuId =  ((TextField)event.getSource()).getText();
-//        currentOrder.setAsuID(asuId);
-    }
-
-    public void setOrder(Order order) {
-        System.out.println("\nSET ORDER\n");
-        System.out.println(order);
-        currentOrder = order;
-        displayCurrentState();
     }
 
     public void submitOrder() {
         System.out.println("SUBMIT ORDER");
-        Database.addOrder(this.currentOrder);
+        Database.addOrder(Persist.customerViewOrder);
     }
 }
