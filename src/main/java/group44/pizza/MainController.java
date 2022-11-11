@@ -1,5 +1,6 @@
 package group44.pizza;
 
+import group44.pizza.storage.Database;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +15,7 @@ import java.io.IOException;
 public class MainController extends Application {
     @Override
     public void start(Stage stage) throws IOException {
+        Database.loadOrders();
         FXMLLoader fxmlLoader = new FXMLLoader(MainController.class.getResource("MainMenu.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 450, 300);
         stage.setTitle("SunDevil Pizza");

@@ -1,8 +1,6 @@
 package group44.pizza.storage;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.ArrayList;
 
 // This is the database class. Everything is currently stored in memory but by abstracting away all the
@@ -12,7 +10,17 @@ public class Database {
     private static final String persistentFilePath = "db.txt";
 
     public static void loadOrders() {
+        try {
+            FileInputStream fileIn = new FileInputStream(persistentFilePath);
+            ObjectInputStream objectIn = new ObjectInputStream(fileIn);
 
+            orders = (ArrayList<Order>) objectIn.readObject();
+
+            fileIn.close();
+            objectIn.close();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
     }
     // Everything is static. Is it bad practice? Yes. Do I care? No
     public static void addOrder(Order order) {
@@ -38,9 +46,11 @@ public class Database {
 
     private static void writeObjectToFile(Object obj) {
         try {
-            FileOutputStream fileOut = new FileOutputStream(new File(persistentFilePath));
+            FileOutputStream fileOut = new FileOutputStream(persistentFilePath);
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
             objectOut.writeObject(obj);
+
+            fileOut.close();
             objectOut.close();
             System.out.println("Wrote to a file");
         } catch (Exception exception) {
