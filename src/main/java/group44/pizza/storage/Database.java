@@ -7,25 +7,15 @@ import java.util.ArrayList;
 // "database" logic, we can easily swap it out in the future
 public class Database {
     public static ArrayList<Order> orders = new ArrayList<Order>();
-    private static final String persistentFilePath = "db.txt";
+    public static ArrayList<String> asuIdList = new ArrayList<String>();
 
-    public static void loadOrders() {
-        try {
-            FileInputStream fileIn = new FileInputStream(persistentFilePath);
-            ObjectInputStream objectIn = new ObjectInputStream(fileIn);
+    private static final String orderFilePath = "order.txt";
+    private static final String asuIdPath = "asuId.txt";
 
-            orders = (ArrayList<Order>) objectIn.readObject();
-
-            fileIn.close();
-            objectIn.close();
-        } catch (Exception exception) {
-            exception.printStackTrace();
-        }
-    }
     // Everything is static. Is it bad practice? Yes. Do I care? No
     public static void addOrder(Order order) {
         Database.orders.add(order);
-        writeObjectToFile(orders);
+        writeData();
         displayCurrentStatus();
     }
 
@@ -44,15 +34,46 @@ public class Database {
         System.out.printf("%s\n", orders.toString());
     }
 
-    private static void writeObjectToFile(Object obj) {
+    public static void loadData() {
+        orders = (ArrayList<Order>) readObjectFromFile(orderFilePath);
+        asuIdList = (ArrayList<String>) readObjectFromFile(asuIdPath);
+
+        if (orders == null) orders = new ArrayList<Order>();
+        if (asuIdList == null) asuIdList = new ArrayList<String>();
+    }
+
+    // Call this whenever you wanna update the file
+    public static void writeData() {
+        writeObjectToFile(orders, orderFilePath);
+        writeObjectToFile(asuIdList, asuIdPath);
+    }
+
+    private static Object readObjectFromFile(String path) {
         try {
-            FileOutputStream fileOut = new FileOutputStream(persistentFilePath);
+            // Read orders from disk
+            FileInputStream fileIn = new FileInputStream(path);
+            ObjectInputStream objectIn = new ObjectInputStream(fileIn);
+
+            Object obj = objectIn.readObject();
+
+            fileIn.close();
+            objectIn.close();
+
+            return obj;
+        } catch (Exception exception) {
+            System.out.println("File does not exist");
+        }
+        return null;
+    }
+
+    private static void writeObjectToFile(Object obj, String path) {
+        try {
+            FileOutputStream fileOut = new FileOutputStream(new File(path));
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
             objectOut.writeObject(obj);
 
             fileOut.close();
             objectOut.close();
-            System.out.println("Wrote to a file");
         } catch (Exception exception) {
             exception.printStackTrace();
         }
