@@ -11,10 +11,19 @@ public class Database {
 
     private static final String orderFilePath = "order.txt";
     private static final String asuIdPath = "asuId.txt";
+    private static long orderID = 0;
+    public static long getOrderID() {
+        return orderID;
+    }
+
+    public static void incrementOrderID() {
+        Database.orderID++;
+    }
 
     // Everything is static. Is it bad practice? Yes. Do I care? No
     public static void addOrder(Order order) {
         Database.orders.add(order);
+        orderID++;
         writeData();
         displayCurrentStatus();
     }
@@ -38,6 +47,7 @@ public class Database {
         orders = (ArrayList<Order>) readObjectFromFile(orderFilePath);
         asuIdList = (ArrayList<String>) readObjectFromFile(asuIdPath);
 
+        if (orders != null) Database.orderID = orders.get(orders.size() - 1).getId();
         if (orders == null) orders = new ArrayList<Order>();
         if (asuIdList == null) asuIdList = new ArrayList<String>();
     }

@@ -6,15 +6,14 @@ import java.util.ArrayList;
 public class Order implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private static long nextId = 0;
     private long id;
     private String asuID;
     private String pizzaType;
     private ArrayList<String> toppings;
     private String pickupTime;
 
-    public Order(String asuID, String pizzaType, ArrayList<String> toppings, String pickupTime) {
-        this.id = nextId++;
+    public Order(String asuID, String pizzaType, ArrayList<String> toppings, String pickupTime, long orderID) {
+        this.id = orderID;
         this.asuID = asuID;
         this.pizzaType = pizzaType;
         this.toppings = toppings;

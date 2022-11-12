@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Screen;
@@ -17,6 +18,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class PromptController {
+    public Button submit;
     private String asuId = "";
 
     @FXML
@@ -48,5 +50,7 @@ public class PromptController {
     public void submitOrder() {
         System.out.println("SUBMIT ORDER");
         Database.addOrder(Persist.customerViewOrder);
+        Stage stage = (Stage) submit.getScene().getWindow();
+        stage.close();
     }
 }

@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -54,15 +55,10 @@ public class StoreViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ArrayList<String> toppings_ = new ArrayList<String>();
-        toppings_.add("Mushrooms");
-        toppings_.add("Pineapple");
-        Order order1 = new Order("122222", "cheese", toppings_, "12:00");
-        Order order2 = new Order("1222922", "pepperoni", toppings_, "12:00");
-        Order order3 = new Order("12222", "cheese", toppings_, "12:00");
-        orders.getItems().add(order1);
-        orders.getItems().add(order2);
-        orders.getItems().add(order3);
+        Database.loadData();
+        ArrayList<Order> order = Database.orders;
+        orders.getItems().addAll(order);
+
         orders.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Order>(){
             @Override
             public void changed(ObservableValue<? extends Order> observableValue, Order order, Order t1) {

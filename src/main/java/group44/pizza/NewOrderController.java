@@ -37,8 +37,8 @@ public class NewOrderController {
     public void onSubmit(ActionEvent event) throws Exception {
         try {
             // CHECK FOR INVALID SUBMISSIONS
-            if (this.pizzaType == "") return;
-            if (this.pickupTime == "") return;
+            if (this.pizzaType.equals( "")) return;
+            if (this.pickupTime.equals("")) return;
 
             // Create a new order object
             Order newOrder = generateOrder();
@@ -58,7 +58,8 @@ public class NewOrderController {
 
     private Order generateOrder() {
         // ADD ORDER TO DATABASE?
-        return new Order("", this.pizzaType,this.toppings,this.pickupTime);
+        Database.incrementOrderID();
+        return new Order("", this.pizzaType,this.toppings,this.pickupTime,  Database.getOrderID());
     }
 
     // HI! Noel here, the classes below are to set the pizza types.
