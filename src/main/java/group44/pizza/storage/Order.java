@@ -11,6 +11,7 @@ public class Order implements Serializable {
     private String pizzaType;
     private ArrayList<String> toppings;
     private String pickupTime;
+    private String status;
 
     public Order(String asuID, String pizzaType, ArrayList<String> toppings, String pickupTime, long orderID) {
         this.id = orderID;
@@ -18,6 +19,7 @@ public class Order implements Serializable {
         this.pizzaType = pizzaType;
         this.toppings = toppings;
         this.pickupTime = pickupTime;
+        this.status = "ACCEPTED";
     }
 
     public long getId() {
@@ -26,10 +28,6 @@ public class Order implements Serializable {
 
     public String getAsuID() {
         return this.asuID;
-    }
-
-    public void setAsuID(String asuID) {
-        this.asuID = asuID;
     }
 
     public String getPizzaType() {
@@ -43,6 +41,14 @@ public class Order implements Serializable {
     public String getPickupTime() {
         return this.pickupTime;
     }
+
+    public String getStatus() { return this.status; }
+
+    public void setAsuID(String asuID) {
+        this.asuID = asuID;
+    }
+
+    public void setStatus(String status) { this.status = status; }
 
     public String toString() {
         String line0 = "ASU ID      :" + this.asuID + "\n";

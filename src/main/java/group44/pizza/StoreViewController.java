@@ -84,4 +84,9 @@ public class StoreViewController implements Initializable {
             }
         } );
     }
+
+    public void setOrderReadyToCook()
+    {
+
+    }
 }
