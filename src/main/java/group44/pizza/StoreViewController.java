@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -71,6 +72,25 @@ public class StoreViewController implements Initializable {
             }
         });
 
+        orders.setCellFactory(orderListView -> new ListCell<Order>() {
+            @Override
+            protected void updateItem(Order order, boolean empty) {
+                super.updateItem(order, empty);
+                if (empty) {
+                    String text = "test";
+                    setText(null);
+                } else {
+                    setText("Order: " + String.valueOf(order.getId() + 1));
+                }
+            }
+        } );
+    }
+
+    public void refresh(ActionEvent actionEvent) {
+        Database.loadData();
+        ArrayList<Order> order = Database.orders;
+        orders.getItems().clear();
+        orders.getItems().addAll(order);
         orders.setCellFactory(orderListView -> new ListCell<Order>() {
             @Override
             protected void updateItem(Order order, boolean empty) {
