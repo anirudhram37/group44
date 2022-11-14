@@ -96,7 +96,6 @@ public class StoreViewController implements Initializable {
             protected void updateItem(Order order, boolean empty) {
                 super.updateItem(order, empty);
                 if (empty) {
-                    String text = "test";
                     setText(null);
                 } else {
                     setText("Order: " + String.valueOf(order.getId() + 1));
@@ -111,7 +110,6 @@ public class StoreViewController implements Initializable {
         }
     }
     
-
     public void readyToCook(ActionEvent actionEvent) {
         setOrderReadyToCook();
     }
