@@ -28,6 +28,33 @@ public class Database {
         displayCurrentStatus();
     }
 
+    public static void setOrderReadyToCook(long id) {
+        for (int i = 0; i < orders.size(); i++) {
+            if (orders.get(i).getId() == id) {
+                orders.get(i).setStatus("READY TO COOK");
+                return;
+            }
+        }
+    }
+
+    public static void setOrderCooking(long id) {
+        for (int i = 0; i < orders.size(); i++) {
+            if (orders.get(i).getId() == id) {
+                orders.get(i).setStatus("COOKING");
+                return;
+            }
+        }
+    }
+
+    public static void setOrderReady(long id) {
+        for (int i = 0; i < orders.size(); i++) {
+            if (orders.get(i).getId() == id) {
+                orders.get(i).setStatus("READY");
+                return;
+            }
+        }
+    }
+
     // We will remove orders based on their id?
     public static void removeOrderByAsuId(String asuID) {
         for (int i = 0; i < orders.size(); i++) {

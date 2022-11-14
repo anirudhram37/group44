@@ -60,7 +60,7 @@ public class StoreViewController implements Initializable {
         ArrayList<Order> order = Database.orders;
         orders.getItems().addAll(order);
 
-        orders.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Order>(){
+        orders.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Order>() {
             @Override
             public void changed(ObservableValue<? extends Order> observableValue, Order order, Order t1) {
                 System.out.println(t1);
@@ -83,7 +83,7 @@ public class StoreViewController implements Initializable {
                     setText("Order: " + String.valueOf(order.getId() + 1));
                 }
             }
-        } );
+        });
     }
 
     public void refresh(ActionEvent actionEvent) {
@@ -102,6 +102,10 @@ public class StoreViewController implements Initializable {
                     setText("Order: " + String.valueOf(order.getId() + 1));
                 }
             }
-        } );
+        });
+    }
+
+    public void setOrderReadyToCook() {
+
     }
 }
