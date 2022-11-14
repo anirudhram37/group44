@@ -13,6 +13,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class OrderStatusController {
     @FXML
@@ -35,7 +36,11 @@ public class OrderStatusController {
     }
 
     public void checkOrderStatus() {
-        Order checkedOrder = Database.getOrderByAsuId(asuid.getText());
-        orderstatus.setText(checkedOrder.getStatus());
+        ArrayList<Order> checkedOrder = Database.getOrderByAsuId(asuid.getText());
+        String str = "";
+        for (Order order : checkedOrder) {
+            str += order.getId() + ":" + order.getStatus() + "\n";
+        }
+        orderstatus.setText(str);
     }
 }

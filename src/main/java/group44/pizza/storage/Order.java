@@ -14,6 +14,7 @@ public class Order implements Serializable {
     private String status;
 
     public Order() {
+        this.id = 0;
         this.status = "ASU ID NOT FOUND";
     }
 

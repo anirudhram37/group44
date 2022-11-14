@@ -1,6 +1,7 @@
 package group44.pizza.storage;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 // This is the database class. Everything is currently stored in memory but by abstracting away all the
@@ -20,11 +21,13 @@ public class Database {
         Database.orderID++;
     }
 
-    public static Order getOrderByAsuId(String asuId) {
+    public static ArrayList<Order> getOrderByAsuId(String asuId) {
+        ArrayList<Order> toReturn = new ArrayList<Order>();
         for (Order order : orders) {
-            if (order.getAsuID().equals(asuId)) return order;
+            if (order.getAsuID().equals(asuId)) toReturn.add(order);
         }
-        return new Order();
+        if (toReturn.size() == 0) toReturn.add(new Order());
+        return toReturn;
     }
 
     // Everything is static. Is it bad practice? Yes. Do I care? No
