@@ -109,6 +109,7 @@ public class StoreViewController implements Initializable {
         int currentOrderId = order.getId(currentOrder);
         
         Database.setReadyToCook(currentOrderId);
+        setText(order.getId(currentOrder) + ": Order is ready to cook");
 
     }
 }
