@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 // This is the database class. Everything is currently stored in memory but by abstracting away all the
 // "database" logic, we can easily swap it out in the future
-public class Database {
+public class Database implements Serializable{
     public static ArrayList<Order> orders = new ArrayList<Order>();
     public static ArrayList<String> asuIdList = new ArrayList<String>();
 
