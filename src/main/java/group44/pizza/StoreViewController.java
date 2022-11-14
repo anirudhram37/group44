@@ -110,7 +110,7 @@ public class StoreViewController implements Initializable {
             Database.setOrderReadyToCook(currentOrder.getId());
         }
     }
-
+    
 
     public void readyToCook(ActionEvent actionEvent) {
         setOrderReadyToCook();
