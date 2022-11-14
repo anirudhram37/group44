@@ -13,6 +13,10 @@ public class Order implements Serializable {
     private String pickupTime;
     private String status;
 
+    public Order() {
+        this.status = "ASU ID NOT FOUND";
+    }
+
     public Order(String asuID, String pizzaType, ArrayList<String> toppings, String pickupTime, long orderID) {
         this.id = orderID;
         this.asuID = asuID;

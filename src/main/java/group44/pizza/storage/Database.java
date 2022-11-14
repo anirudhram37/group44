@@ -6,6 +6,7 @@ import java.util.ArrayList;
 // This is the database class. Everything is currently stored in memory but by abstracting away all the
 // "database" logic, we can easily swap it out in the future
 public class Database {
+    public static Order EmptyOrder = new Order();
     public static ArrayList<Order> orders = new ArrayList<Order>();
     public static ArrayList<String> asuIdList = new ArrayList<String>();
 
@@ -18,6 +19,13 @@ public class Database {
 
     public static void incrementOrderID() {
         Database.orderID++;
+    }
+
+    public static Order getOrderByAsuId(String asuId) {
+        for (Order order : orders) {
+            if (order.getAsuID().equals(asuId)) return order;
+        }
+        return EmptyOrder;
     }
 
     // Everything is static. Is it bad practice? Yes. Do I care? No
