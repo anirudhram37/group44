@@ -105,10 +105,11 @@ public class StoreViewController implements Initializable {
         });
     }
 
-    public void setOrderReadyToCook(String co) {
-        int currentOrderId = order.getId(co);
+    public void setOrderReadyToCook() {
+        int currentOrderId = order.getId(currentOrder);
         
         Database.setReadyToCook(currentOrderId);
+        setText(order.getId(currentOrder) + ": Order is ready to cook");
 
     }
 }
